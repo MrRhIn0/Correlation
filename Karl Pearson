@@ -1,0 +1,62 @@
+#Karl Pearson
+#Author Mr. Rhino aka Jas Parmar
+
+
+#For taking value of x, sum of x and x bar
+x = []
+while True:
+    n = input("Enter value for x: ")
+    if n=='':
+        break
+    x.append(float(n))
+print("Entered value of x: ", x)
+Sum_x = sum(x)
+print("Sum of x:", Sum_x)
+x_bar = Sum_x/len(x) 
+print("Value of x bar: ", x_bar)
+
+#For taking value of y, sum of y and y bar
+y = []
+while True:
+    m = input("Enter value for y: ")
+    if m=='':
+        break
+    y.append(float(m))
+print("Entered value of y: ", y)
+Sum_y = sum(y)
+print("Sum of y: ",Sum_y)
+y_bar = Sum_y/len(y)
+print("Value of y bar: ",y_bar)
+
+#for xy
+mult_xy = [float(a) * float(b) for a, b in zip(x, y)]
+print("Value of xy: ", mult_xy)
+Sum_xy = sum(mult_xy)
+print("Sum of xy: ", Sum_xy)
+
+#For x^2
+x_squ = [u ** 2 for u in x]
+print('Square of x: ', x_squ)
+Sum_x_squ = sum(x_squ)
+print("Sum of x^2: ", Sum_x_squ)
+
+#For y^2
+y_squ = [v **2 for v in y]
+print('Square of y: ', y_squ)
+Sum_y_squ = sum(y_squ)
+print("Sum of y^2: ", Sum_y_squ)
+
+#Root for x term
+squ_xbar = x_bar ** 2
+squ_root_x = (Sum_x_squ - len(x)* squ_xbar) ** 0.5
+
+#Root for y term
+squ_ybar = y_bar ** 2
+squ_root_y = (Sum_y_squ -len(y)* squ_ybar) ** 0.5
+
+#For formula of Karl Pearson
+r_num = Sum_xy - (len(x)* (x_bar) * (y_bar)) 
+r_den = (squ_root_x) * (squ_root_y)
+r = r_num / r_den
+print("Answer of question (r)=", r)
+
